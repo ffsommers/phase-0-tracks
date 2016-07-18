@@ -1,0 +1,20 @@
+#nav {
+	background:#06a;
+	padding:10px 20px;
+	text-align:right;
+	color:#f6dde3;
+}
+
+#nav a {
+	margin: 0 10px;
+}
+
+#nav a:visited, #nav a:link {
+	text-decoration:none;
+	color:#f6dde3;
+}
+
+#nav a:hover {
+	text-decoration:underline;
+	color:#f6dde3;
+}
