@@ -36,23 +36,23 @@ figcaption {
   text-align: right;
 }
 
-/*main {
-  width:65%;
+main {
+  width:55%;
   display:inline-block;
-  margin: 0 auto;
+  
 }
 #external-links{
   display:inline-block;
   vertical-align: top;
   width:25%;
 }
-*/
+
 @media screen and (max-width: 500px) {
   body {
     background-color: orange;
-  
+  }
   #external-links{
-    font-size:} 12px;
+    font-size: 12px;
     width:100%;
     visibility: hidden;
   }
