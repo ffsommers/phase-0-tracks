@@ -1,10 +1,24 @@
 def vampire_check 
+  
   puts "how many employees will be processed"
   count = gets.chomp.to_i
-idx =0
+  idx =0
+  
   while idx < count
   puts "What is your name?"
   name = gets.chomp
+  puts "please list any alergies you have. enter 'done' when you're finished"
+
+  while  (alergies = gets.chomp) != "done" 
+       alergies
+      
+      if alergies == "sunshine"
+        puts "Definately a Vampire"
+        exit(false)
+      end
+  
+  end 
+
   puts "How old are you?"
   age = gets.chomp
   puts "What year were you born in?"
@@ -33,7 +47,7 @@ idx =0
           end
 
  
- not_vampire = if  age_check &&  !(bread || health)  
+  not_vampire = if  age_check &&  !(bread || health)  
                 not_vampire = true
                else 
                 not_vampire = false
@@ -58,8 +72,6 @@ idx =0
               else 
                 def_vampire = false      
               end
-
-     
      
   not_sure = if (not_vampire && prob_vampire && cert_vampire && def_vampire)
               not_sure = true
@@ -69,21 +81,23 @@ idx =0
 
     if def_vampire 
        puts "Definitely a vampire." 
-
      
     elsif cert_vampire 
        puts "Almost certainly a vampire."
 
-
     elsif  prob_vampire && !not_vampire
        puts "Probably a vampire."
+
     elsif  not_vampire
        puts "Probably not a vampire."
+
     else
        puts "results inconclusive"      
             
     end        
+
    idx +=1
+
  end
 
 end
