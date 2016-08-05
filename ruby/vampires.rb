@@ -99,7 +99,7 @@ def vampire_check
    idx +=1
 
  end
-
+ puts "Actually, never mind! What do these questions have to do with anything?" 
 end
 
 puts vampire_check
