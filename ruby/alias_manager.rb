@@ -5,6 +5,9 @@
 # 2.change all vowels to next vowel aieou 
 # 3. increment all consonants by one letter 
 
+
+
+
 def alias_creator (str)
 # downcase all characters incase the name had initial caps.
 str = str.downcase	
@@ -54,11 +57,18 @@ last_name_alias = ""
  spy_alias = first_name_alias + " " + last_name_alias
  p spy_alias
 
+
 end
 
-alias_creator("frank sommers")
-alias_creator("FRANK SOMMERS")
-alias_creator("Frank Sommers")
-alias_creator("FrAnK SoMmErS")
-puts 
-alias_creator("Felicia Torres")
+puts "Hello user! Please enter the name you would like to encode. If you are done type 'quit'."
+name = gets.chomp
+
+until name == "quit"
+   alias_creator(name)
+   puts "Hello user! Please enter the name you would like to encode. If you are done type 'quit'."
+name = gets.chomp
+end
+# release 1
+
+
+
