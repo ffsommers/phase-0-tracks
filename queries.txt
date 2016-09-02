@@ -1,0 +1,144 @@
+RELEASE 2
+Question 1:
+
+sqlite> select * from marines;
+
+1|Sommers Frank|2LT|300|true|1
+2|Seibert Michael|2LT|300|true|2
+3|Cerato Marcus|2LT|300|true|3
+4|Hunter Craig|GySgt|300|true|1
+5|Anton Paolo|LCpl|500|false|1
+6|Gresh Drew|Pvt|300|false|1
+7|Finger James|GySgt|300|true|2
+8|Lolar Nicholas|LCpl|500|false|2
+9|Wozniak Buzz|Pvt|300|false|2
+10|Karnes Frank|GySgt|300|True|3
+11|Peterson Daniel|LCpl|500|false|3
+12|Richardson Brett|Pvt|300|false|3
+sqlite> 
+
+Question 2: 
+
+sqlite> update marines set squad_id=3 where name = "Gresh Drew";
+
+sqlite> select * from marines;
+1|Sommers Frank|2LT|300|true|1
+2|Seibert Michael|2LT|300|true|2
+3|Cerato Marcus|2LT|300|true|3
+4|Hunter Craig|GySgt|300|true|1
+5|Anton Paolo|LCpl|500|false|1
+6|Gresh Drew|Pvt|300|false|3
+7|Finger James|GySgt|300|true|2
+8|Lolar Nicholas|LCpl|500|false|2
+9|Wozniak Buzz|Pvt|300|false|2
+10|Karnes Frank|GySgt|300|True|3
+11|Peterson Daniel|LCpl|500|false|3
+12|Richardson Brett|Pvt|300|false|3
+sqlite> 
+
+Question 3
+
+sqlite> select * from marines, squads where squad_id=squads.id;
+
+1|Sommers Frank|2LT|300|true|1|1|1st Squad
+2|Seibert Michael|2LT|300|true|2|2|2nd Squad
+3|Cerato Marcus|2LT|300|true|3|3|3rd Squad
+4|Hunter Craig|GySgt|300|true|1|1|1st Squad
+5|Anton Paolo|LCpl|500|false|1|1|1st Squad
+6|Gresh Drew|Pvt|300|false|3|3|3rd Squad
+7|Finger James|GySgt|300|true|2|2|2nd Squad
+8|Lolar Nicholas|LCpl|500|false|2|2|2nd Squad
+9|Wozniak Buzz|Pvt|300|false|2|2|2nd Squad
+10|Karnes Frank|GySgt|300|True|3|3|3rd Squad
+11|Peterson Daniel|LCpl|500|false|3|3|3rd Squad
+12|Richardson Brett|Pvt|300|false|3|3|3rd Squad
+sqlite> 
+
+Question 4
+
+sqlite>  select marines.name, squads.squad from marines join squads on marines. squad_id= squads.id;
+
+Sommers Frank|1st Squad
+Seibert Michael|2nd Squad
+Cerato Marcus|3rd Squad
+Hunter Craig|1st Squad
+Anton Paolo|1st Squad
+Gresh Drew|3rd Squad
+Finger James|2nd Squad
+Lolar Nicholas|2nd Squad
+Wozniak Buzz|2nd Squad
+Karnes Frank|3rd Squad
+Peterson Daniel|3rd Squad
+Richardson Brett|3rd Squad
+sqlite> 
+
+Question 5
+
+sqlite> delete from marines where marines.name ="Gresh Drew";
+sqlite> select * from marines;
+
+1|Sommers Frank|2LT|300|true|1
+2|Seibert Michael|2LT|300|true|2
+3|Cerato Marcus|2LT|300|true|3
+4|Hunter Craig|GySgt|300|true|1
+5|Anton Paolo|LCpl|500|false|1
+7|Finger James|GySgt|300|true|2
+8|Lolar Nicholas|LCpl|500|false|2
+9|Wozniak Buzz|Pvt|300|false|2
+10|Karnes Frank|GySgt|300|True|3
+11|Peterson Daniel|LCpl|500|false|3
+12|Richardson Brett|Pvt|300|false|3
+sqlite> 
+
+RELEASE 3
+
+ alter table : create an armed column, gave all 2LTs M16s 
+   
+   sqlite> alter table marines add column armed varchar(255);
+   sqlite> update marines set armed = "m16" where marines.rank ="2LT";
+
+sqlite> select * from marines;
+1|Sommers Frank|2LT|300|true|1|m16
+2|Seibert Michael|2LT|300|true|2|m16
+3|Cerato Marcus|2LT|300|true|3|m16
+4|Hunter Craig|GySgt|300|true|1|
+5|Anton Paolo|LCpl|500|false|1|
+7|Finger James|GySgt|300|true|2|
+8|Lolar Nicholas|LCpl|500|false|2|
+9|Wozniak Buzz|Pvt|300|false|2|
+10|Karnes Frank|GySgt|300|True|3|
+11|Peterson Daniel|LCpl|500|false|3|
+12|Richardson Brett|Pvt|300|false|3|
+sqlite> 
+
+PRAGMA table_info(TABLENAME):
+
+sqlite> pragma table_info(marines);
+0|id|integer|0||1
+1|name|varchar(255)|0||0
+2|rank|varchar(255)|0||0
+3|ammo|integer|0||0
+4|leadership|boolean|0||0
+5|squad_id|integer|0||0
+6|armed|varchar(255)|0||0
+sqlite> 
+
+PRESENTABILITY .mode, .headers
+
+sqlite> .mode col
+sqlite> .headers on
+sqlite> select * from marines;
+id          name           rank        ammo        leadership  squad_id    armed     
+----------  -------------  ----------  ----------  ----------  ----------  ----------
+1           Sommers Frank  2LT         300         true        1           m16       
+2           Seibert Micha  2LT         300         true        2           m16       
+3           Cerato Marcus  2LT         300         true        3           m16       
+4           Hunter Craig   GySgt       300         true        1                     
+5           Anton Paolo    LCpl        500         false       1                     
+7           Finger James   GySgt       300         true        2                     
+8           Lolar Nichola  LCpl        500         false       2                     
+9           Wozniak Buzz   Pvt         300         false       2                     
+10          Karnes Frank   GySgt       300         True        3                     
+11          Peterson Dani  LCpl        500         false       3                     
+12          Richardson Br  Pvt         300         false       3                     
+sqlite> 
