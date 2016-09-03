@@ -1,0 +1,12 @@
+Release 0: 
+
+-Ask user which floor they would like to go to. 
+- push button of corresponding floor
+
+Release 1: 
+algorithm for choosing fastest route to work. 
+  - establish starting destination for route(home)
+  - establish end destination for route(work)
+  - find out which streets have the most traffic using google maps. 
+  - plot route using streets with the least traffic and have the most direct line from starting destination to end destination  
+
