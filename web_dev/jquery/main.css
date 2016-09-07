@@ -3,8 +3,12 @@ html { overflow-y: scroll; }
 body { 
 	width:900px 
 	font: 12px/1.4 Helvetica, sans-serif; 
-	background: #333; 
-	color: white; }
+	background: #333;
+	color: white; 
+}
+
+
+
 .group:after {
  visibility: hidden; 
  display: block; 
