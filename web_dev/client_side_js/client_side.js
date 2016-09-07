@@ -12,3 +12,9 @@ var arr= [];
        arr[i].appendChild(text);
        div[0].appendChild(arr[i]);
    }
+
+function makeBigger (event) {
+	event.target.style.width = "500px";
+}   
+
+el.addEventListener("mouseover",makeBigger);
