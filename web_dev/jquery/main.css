@@ -1,6 +1,8 @@
 * { margin: 0; padding: 0; }
 html { overflow-y: scroll; }
-body { font: 12px/1.4 Helvetica, sans-serif; 
+body { 
+	width:900px 
+	font: 12px/1.4 Helvetica, sans-serif; 
 	background: #333; 
 	color: white; }
 .group:after {
@@ -38,9 +40,11 @@ a:focus { outline: 0; }
     color:white;
 }
 
-h1 { 
+span { 
  font: bold 32px Helvetica, Arial, Sans-Serif;
  letter-spacing: -1px; 
+ width:600px;
+ font-size:20px;
  color:white; 
   
 }
