@@ -24,4 +24,34 @@ post '/students' do
   redirect '/'
 end
 
+post '/reader' do 
+	@individual = db.execute("SELECT * from students WHERE name=?",params['name'])
+    @person = ""
+  @individual.each do |student|
+    
+    @person << "Name: #{student['name']}<br>"
+    @person << "Age: #{student['age']}<br>"
+    
+  end
+  @person
+	erb :reader
+end
+
+
+
+
 # add static resources
+=begin
+	
+rescue Exception => e
+	
+end
+Create an HTTP route that will respond with the template you created in the previous release.
+Add an ERB template to the application in phase-0-tracks/web_dev/sinatra_templating. It can be relevant to the other pages or something totally different, but it should use at least one dynamic piece of data (which you'll populate in the next release).
+=end
+
+get '/students/reader' do
+	erb :reader
+	
+end	
+

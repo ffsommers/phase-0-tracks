@@ -1,3 +1,14 @@
 body {
+  background: #333;	
   font-family: Helvetica;
+  color:white;
+}
+nav li {
+	display:inline;
+	list-style-type: none;
+
+}
+nav li a {
+    color:white;
+	text-decoration: none;	
 }
