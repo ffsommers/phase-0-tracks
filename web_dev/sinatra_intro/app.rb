@@ -60,3 +60,11 @@ get '/great_job/?:individual?' do
       "Good Job!"
     end
 end   
+
+get '/find/:name' do
+
+  student = db.execute("SELECT * FROM students WHERE name=?", [params[:name]])[0]
+  student.to_s
+  
+
+end  
